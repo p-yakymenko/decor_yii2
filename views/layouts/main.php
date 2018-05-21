@@ -18,12 +18,12 @@ AppAsset::register($this);
 
 <head>
 	<meta charset="<?= Yii::$app->charset ?>">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?= Html::csrfMetaTags() ?>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<?= Html::csrfMetaTags() ?>
 
 	<title><?= Html::encode($this->title) ?></title>
-    
+
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">
 
@@ -33,943 +33,259 @@ AppAsset::register($this);
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
-	<link rel="icon" type="image/png" href="./img/favicon.png" />
-	<?php $this->head() ?>
-</head>
+		<link rel="icon" type="image/png" href="/img/favicon.png" />
+		<?php $this->head() ?>
+	</head>
 
-<body>
-	<?php $this->beginBody() ?>
-	<!-- HEADER -->
-	<header>
-		<!-- top Header -->
-		<!--
-		<div id="top-header">
-			<div class="container">
-				<div class="pull-left">
-					<span></span>
+	<body>
+		<?php $this->beginBody() ?>
+		<!-- HEADER -->
+		<header>
+			<!-- header -->
+			<div id="header">
+				<div class="container">
+					<div class="pull-left">
+						<!-- Logo -->
+						<div class="header-logo">
+							<a class="logo-icon"><img src="/img/iconlogo.png" alt="" height="75" width="75"></a>
+							<a class="logo" href="http://kreativhandmade.in.ua">
+								<img src="/img/logo.png" alt="">
+							</a>
+						</div>
+						<!-- /Logo -->
+					</div>
+					<div class="pull-right">
+						<ul class="header-btns">
+							<!-- Account -->
+							<li class="header-account dropdown default-dropdown">
+								<div class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="true">
+									<div class="header-btns-icon">
+										<img src="/img/account.png" alt="" height="40" width="40">
+									</div>
+									<strong class="text-uppercase">Мой аккант <i class="fa fa-caret-down"></i></strong>
+								</div>
+								<a href="#" class="text-uppercase" style="font-size: 10px;">Войти</a> / <a href="#" class="text-uppercase" style="font-size: 10px" >Создать</a>
+								<ul class="custom-menu">
+									<li><a href="#"><i class="fa fa-user-o"></i> Мой аккаунт</a></li>
+									<li><a href="#"><i class="fa fa-heart-o"></i> Список желаний</a></li>
+									<li><a href="#"><i class="fa fa-exchange"></i> Сравнение</a></li>
+									<li><a href="#"><i class="fa fa-check"></i> Посчитать</a></li>
+									<li><a href="#"><i class="fa fa-unlock-alt"></i> Войти</a></li>
+									<li><a href="#"><i class="fa fa-user-plus"></i> Создать аккаунт</a></li>
+								</ul>
+							</li>
+							<!-- /Account -->
+
+							<!-- Cart -->
+							<li class="header-cart dropdown default-dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+									<div class="header-btns-icon">
+										<img src="/img/cart.png" alt="" height="40" width="40">
+										<span class="qty">3</span>
+									</div>
+									<strong class="text-uppercase">Моя коризна:</strong>
+									<br>
+									<span>35.20$</span>
+								</a>
+								<div class="custom-menu">
+									<div id="shopping-cart">
+										<div class="shopping-cart-list">
+											<div class="product product-widget">
+												<div class="product-thumb">
+													<img src="/img/thumb-product01.jpg" alt="">
+												</div>
+												<div class="product-body">
+													<h3 class="product-price">$32.50 <span class="qty">x3</span></h3>
+													<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
+												</div>
+												<button class="cancel-btn"><i class="fa fa-trash"></i></button>
+											</div>
+											<div class="product product-widget">
+												<div class="product-thumb">
+													<img src="/img/thumb-product01.jpg" alt="">
+												</div>
+												<div class="product-body">
+													<h3 class="product-price">$32.50 <span class="qty">x3</span></h3>
+													<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
+												</div>
+												<button class="cancel-btn"><i class="fa fa-trash"></i></button>
+											</div>
+										</div>
+										<div class="shopping-cart-btns">
+											<button class="main-btn">View Cart</button>
+											<button class="primary-btn"><a href="./checkout.html" >Checkout</a> <i class="fa fa-arrow-circle-right"></i></button>
+										</div>
+									</div>
+								</div>
+							</li>
+							<!-- /Cart -->
+
+							<!-- Mobile nav toggle-->
+							<li class="nav-toggle">
+								<button class="nav-toggle-btn main-btn icon-btn"><i class="fa fa-bars"></i></button>
+							</li>
+							<!-- / Mobile nav toggle -->
+						</ul>
+					</div>
 				</div>
-				<div class="pull-right">
-					<ul class="header-top-links">
-						<li><a href="#"></a></li>
-						<li><a href="#"></a></li>
-						<li><a href="#"></a></li>
-							<li><a href="#"><img src="./img/social/fb.png" alt="" height="26" width="26"></a></li>
-							<li><a href="#"><img src="./img/social/vk.png" alt="" height="26" width="26"></a></li>
-							<li><a href="#"><img src="./img/social/inst.png" alt="" height="26" width="26"></a></li>
-						
-					</ul>
-					
-						</li>
-					</ul>
-				</div>
+				<!-- header -->
 			</div>
-		</div>
-		-->
-		<!-- /top Header -->
+			<!-- container -->
+		</header>
+		<!-- /HEADER -->
 
-		<!-- header -->
-		<div id="header">
+		<!-- NAVIGATION -->
+		<div id="navigation">
+			<!-- container -->
 			<div class="container">
-				<div class="pull-left">
-					<!-- Logo -->
-					<div class="header-logo">
-						<a class="logo-icon"><img src="./img/iconlogo.png" alt="" height="75" width="75"></a>
-						<a class="logo" href="http://kreativhandmade.in.ua">
-							<img src="./img/logo.png" alt="">
+				<div id="responsive-nav">
+					<!-- category nav -->
+					<div class="category-nav">
+						<span class="category-header">Категории <i class="fa fa-list"></i></span>
+						<ul class="category-list">
+							<li class="dropdown side-dropdown">
+						</ul>
+					</div>
+<!-- <div class="category-nav">
+	<span class="category-header">Альбомы<i class="fa fa-list"></i></span>
+	<ul class="category-list">
+		<li class="dropdown side-dropdown">
+		<li><a href="#">Рамочки с Узи</a></li>
+		<li><a href="#">1 фото</a></li>
+		<li><a href="#">3-4 фото</a></li>
+		<li><a href="#">5 фото</a></li>
+		<li><a href="#">Гигаметрики</a></li>
+		<li><a href="#">Метрики без фото</a></li>
+		<li><a href="#">Ночники</a></li>
+		<li><a href="#">Топперы</a></li>
+		<li><a href="#">Мамины сокровища</a></li>
+		<li><a href="./products.html">Смотреть все</a></li>
+	</ul>
+</div> -->
+<!-- /category nav -->
+
+<!-- menu nav -->
+<div class="menu-nav">
+	<span class="menu-header">Menu <i class="fa fa-bars"></i></span>
+	<ul class="menu-list">
+		<li><a href="#">Главная</a></li>
+		<li><a href="#">Альбомы</a></li>
+		<li><a href="./font-page.html">Шрифты</a></li>
+		<li><a href="#">Доставка</a></li>
+		<li><a href="#">Контакты</a></li>
+		<li><a href="#">Отзывы</a></li>
+		<li><a href="#"> </a></li>
+		<li><a href="#"> </a></li>
+		<li><a href="#"> </a></li>
+		<li><a href="#"><img src="/img/social/fb.png" alt="" height="20" width="20"></a></li>
+		<li><a href="#"><img src="/img/social/vk.png" alt="" height="20" width="20"></a></li>
+		<li><a href="#"><img src="/img/social/inst.png" alt="" height="20" width="20"></a></li>
+	</ul>
+</div>
+<!-- /menu nav -->
+</div>
+</div>
+<!-- /container -->
+</div>
+<!-- /NAVIGATION -->
+
+<?= $content; ?>
+
+<!-- FOOTER -->
+<footer id="footer" class="section section-grey">
+	<!-- container -->
+	<div class="container">
+		<!-- row -->
+		<div class="row">
+			<!-- footer widget -->
+			<div class="col-md-3 col-sm-6 col-xs-6">
+				<div class="footer">
+					<!-- footer logo -->
+					<div class="footer-logo">
+						<a class="logo" href="#">
+							<img src="/img/logo.png" alt="">
 						</a>
 					</div>
-					<!-- /Logo -->
+					<!-- /footer logo -->
 
-					<!-- Search -->
-					<!--
-					<div class="header-search">
-						<form>
-							<input class="input search-input" type="text" placeholder="Enter your keyword">
-							<select class="input search-categories">
-								<option value="0">All Categories</option>
-								<option value="1">Category 01</option>
-								<option value="1">Category 02</option>
-							</select>
-							<button class="search-btn"><i class="fa fa-search"></i></button>
-						</form>
-					</div>
-					-->
-					<!-- /Search -->
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
+
+					<!-- footer social -->
+					<ul class="footer-social">
+						<li><a href="#"><img src="/img/social/fb.png" alt="" height="32" width="32"></a></li>
+						<li><a href="#"><img src="/img/social/vk.png" alt="" height="32" width="32"></a></li>
+						<li><a href="#"><img src="/img/social/inst.png" alt="" height="32" width="32"></a></li>
+					</ul>
+					<!-- /footer social -->
 				</div>
-				<div class="pull-right">
-					<ul class="header-btns">
-						<!-- Account -->
-						<li class="header-account dropdown default-dropdown">
-							<div class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="true">
-								<div class="header-btns-icon">
-								<img src="./img/account.png" alt="" height="40" width="40">
-								</div>
-								<strong class="text-uppercase">Мой аккант <i class="fa fa-caret-down"></i></strong>
-							</div>
-							<a href="#" class="text-uppercase" style="font-size: 10px;">Войти</a> / <a href="#" class="text-uppercase" style="font-size: 10px" >Создать</a>
-							<ul class="custom-menu">
-								<li><a href="#"><i class="fa fa-user-o"></i> Мой аккаунт</a></li>
-								<li><a href="#"><i class="fa fa-heart-o"></i> Список желаний</a></li>
-								<li><a href="#"><i class="fa fa-exchange"></i> Сравнение</a></li>
-								<li><a href="#"><i class="fa fa-check"></i> Посчитать</a></li>
-								<li><a href="#"><i class="fa fa-unlock-alt"></i> Войти</a></li>
-								<li><a href="#"><i class="fa fa-user-plus"></i> Создать аккаунт</a></li>
-							</ul>
-						</li>
-						<!-- /Account -->
+			</div>
+			<!-- /footer widget -->
 
-						<!-- Cart -->
-						<li class="header-cart dropdown default-dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-								<div class="header-btns-icon">
-									<img src="./img/cart.png" alt="" height="40" width="40">
-									<span class="qty">3</span>
-								</div>
-								<strong class="text-uppercase">Моя коризна:</strong>
-								<br>
-								<span>35.20$</span>
-							</a>
-							<div class="custom-menu">
-								<div id="shopping-cart">
-									<div class="shopping-cart-list">
-										<div class="product product-widget">
-											<div class="product-thumb">
-												<img src="./img/thumb-product01.jpg" alt="">
-											</div>
-											<div class="product-body">
-												<h3 class="product-price">$32.50 <span class="qty">x3</span></h3>
-												<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-											</div>
-											<button class="cancel-btn"><i class="fa fa-trash"></i></button>
-										</div>
-										<div class="product product-widget">
-											<div class="product-thumb">
-												<img src="./img/thumb-product01.jpg" alt="">
-											</div>
-											<div class="product-body">
-												<h3 class="product-price">$32.50 <span class="qty">x3</span></h3>
-												<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-											</div>
-											<button class="cancel-btn"><i class="fa fa-trash"></i></button>
-										</div>
-									</div>
-									<div class="shopping-cart-btns">
-										<button class="main-btn">View Cart</button>
-										<button class="primary-btn"><a href="./checkout.html" >Checkout</a> <i class="fa fa-arrow-circle-right"></i></button>
-									</div>
-								</div>
-							</div>
-						</li>
-						<!-- /Cart -->
-
-						<!-- Mobile nav toggle-->
-						<li class="nav-toggle">
-							<button class="nav-toggle-btn main-btn icon-btn"><i class="fa fa-bars"></i></button>
-						</li>
-						<!-- / Mobile nav toggle -->
+			<!-- footer widget -->
+			<div class="col-md-3 col-sm-6 col-xs-6">
+				<div class="footer">
+					<h3 class="footer-header">Мой аккаунт</h3>
+					<ul class="list-links">
+						<li><a href="#">Мой аккаунт</a></li>
+						<li><a href="#">Список желаний</a></li>
+						<li><a href="#">Сравнить</a></li>
+						<li><a href="#">Посчитать</a></li>
+						<li><a href="#">Войти</a></li>							
 					</ul>
 				</div>
 			</div>
-			<!-- header -->
-		</div>
-		<!-- container -->
-	</header>
-	<!-- /HEADER -->
+			<!-- /footer widget -->
 
-	<!-- NAVIGATION -->
-	<div id="navigation">
-		<!-- container -->
-		<div class="container">
-			<div id="responsive-nav">
-				<!-- category nav -->
-				<div class="category-nav">
-					<span class="category-header">Альбомы<i class="fa fa-list"></i></span>
-					<ul class="category-list">
-						<li class="dropdown side-dropdown">
-						<!--
-							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Альбомы <i class="fa fa-angle-right"></i></a>
-							<div class="custom-menu">
-								<div class="row">
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-										<hr class="hidden-md hidden-lg">
-									</div>
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-										<hr class="hidden-md hidden-lg">
-									</div>
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="row hidden-sm hidden-xs">
-									<div class="col-md-12">
-										<hr>
-										<a class="banner banner-1" href="#">
-											<img src="./img/banner05.jpg" alt="">
-											<div class="banner-caption text-center">
-												<h2 class="white-color">NEW COLLECTION</h2>
-												<h3 class="white-color font-weak">HOT DEAL</h3>
-											</div>
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="dropdown side-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Шрифты <i class="fa fa-angle-right"></i></a>
-							<div class="custom-menu">
-								<div class="row">
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-										<hr>
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-										<hr class="hidden-md hidden-lg">
-									</div>
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-										<hr>
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-									</div>
-									<div class="col-md-4 hidden-sm hidden-xs">
-										<a class="banner banner-2" href="#">
-											<img src="./img/banner04.jpg" alt="">
-											<div class="banner-caption">
-												<h3 class="white-color">NEW<br>COLLECTION</h3>
-											</div>
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="dropdown side-dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Jewelry & Watches <i class="fa fa-angle-right"></i></a>
-							<div class="custom-menu">
-								<div class="row">
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-										<hr>
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-										<hr class="hidden-md hidden-lg">
-									</div>
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-										<hr>
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-										<hr class="hidden-md hidden-lg">
-									</div>
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-										<hr>
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</li>
-						-->
-						<li><a href="#">Рамочки с Узи</a></li>
-						<li><a href="#">1 фото</a></li>
-						<li><a href="#">3-4 фото</a></li>
-						<li><a href="#">5 фото</a></li>
-						<li><a href="#">Гигаметрики</a></li>
-						<li><a href="#">Метрики без фото</a></li>
-						<li><a href="#">Ночники</a></li>
-						<li><a href="#">Топперы</a></li>
-						<li><a href="#">Мамины сокровища</a></li>
-						<li><a href="./products.html">Смотреть все</a></li>
-					</ul>
-				</div>
-				<!-- /category nav -->
+			<div class="clearfix visible-sm visible-xs"></div>
 
-				<!-- menu nav -->
-				<div class="menu-nav">
-					<span class="menu-header">Menu <i class="fa fa-bars"></i></span>
-					<ul class="menu-list">
+			<!-- footer widget -->
+			<div class="col-md-3 col-sm-6 col-xs-6">
+				<div class="footer">
+					<h3 class="footer-header">Клиентам</h3>
+					<ul class="list-links">
 						<li><a href="#">Главная</a></li>
-						<li><a href="#">Альбомы</a></li>
-						<li><a href="./font-page.html">Шрифты</a></li>
-						<li><a href="#">Доставка</a></li>
-						<li><a href="#">Контакты</a></li>
-						<li><a href="#">Отзывы</a></li>
-						<li><a href="#"> </a></li>
-						<li><a href="#"> </a></li>
-						<li><a href="#"> </a></li>
-						<li><a href="#"><img src="./img/social/fb.png" alt="" height="20" width="20"></a></li>
-						<li><a href="#"><img src="./img/social/vk.png" alt="" height="20" width="20"></a></li>
-						<li><a href="#"><img src="./img/social/inst.png" alt="" height="20" width="20"></a></li>
-						<!-- Дроп-даунменю
-						<li class="dropdown default-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Блог <i class="fa fa-caret-down"></i></a>
-							<ul class="custom-menu">
-								<li><a href="index.html">Home</a></li>
-								<li><a href="products.html">Products</a></li>
-								<li><a href="product-page.html">Product Details</a></li>
-								<li><a href="checkout.html">Checkout</a></li>
-							</ul>
-						</li>
-						-->
+						<li><a href="#">Разделы</a></li>
+						<li><a href="#">Шрифты</a></li>
+						<li><a href="#">FAQ</a></li>
 					</ul>
 				</div>
-				<!-- menu nav -->
+			</div>
+			<!-- /footer widget -->
+
+			<!-- footer subscribe -->
+			<div class="col-md-3 col-sm-6 col-xs-6">
+				<div class="footer">
+					<h3 class="footer-header">Рассылка</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+					<form>
+						<div class="form-group">
+							<input class="input" placeholder="Введите E-Mail">
+						</div>
+						<button class="primary-btn">Подписаться на рассылку</button>
+					</form>
+				</div>
+			</div>
+			<!-- /footer subscribe -->
+		</div>
+		<!-- /row -->
+		<hr>
+		<!-- row -->
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2 text-center">
+				<!-- footer copyright -->
+				<div class="footer-copyright">
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+				</div>
+				<!-- /footer copyright -->
 			</div>
 		</div>
-		<!-- /container -->
+		<!-- /row -->
 	</div>
-	<!-- /NAVIGATION -->
-
-	<!-- HOME -->
-	<div id="home">
-		<!-- container -->
-		<div class="container">
-			<!-- home wrap -->
-			<div class="home-wrap">
-				<!-- home slick -->
-				<div id="home-slick">
-					<!-- banner -->
-					<div class="banner banner-1">
-						<img src="./img/banner01.jpg" alt="">
-						<div class="banner-caption text-center">
-							<h1>Распродажа</h1>
-							<h3 class="white-color font-weak">Скидки до 50%</h3>
-							<button class="primary-btn">Купить</button>
-						</div>
-					</div>
-					<!-- /banner -->
-
-					<!-- banner -->
-					<div class="banner banner-1">
-						<img src="./img/banner02.jpg" alt="">
-						<div class="banner-caption">
-							<h1 class="primary-color">Горячее предложение<br><span class="white-color font-weak">Скидки до 50%</span></h1>
-							<button class="primary-btn">Купить</button>
-						</div>
-					</div>
-					<!-- /banner -->
-
-					<!-- banner -->
-					<div class="banner banner-1">
-						<img src="./img/banner03.jpg" alt="">
-						<div class="banner-caption">
-							<h1 class="white-color">Новые товары<span></span></h1>
-							<button class="primary-btn">Купить</button>
-						</div>
-					</div>
-					<!-- /banner -->
-				</div>
-				<!-- /home slick -->
-			</div>
-			<!-- /home wrap -->
-		</div>
-		<!-- /container -->
-	</div>
-	<!-- /HOME -->
-
-	<!-- section -->
-	<!-- /section -->
-
-	<!-- section -->
-	<div class="section">
-		<!-- container -->
-		<div class="container">
-			<!-- row -->
-			<div class="row">
-				<!-- section-title -->
-				<div class="col-md-12">
-					<div class="section-title">
-						<h2 class="title">Скидки</h2>
-						<div class="pull-right">
-							<div class="product-slick-dots-1 custom-dots"></div>
-						</div>
-					</div>
-				</div>
-				<!-- /section-title -->
-
-				<!-- banner -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="banner banner-2">
-						<img src="./img/banner14.jpg" alt="">
-						<div class="banner-caption">
-							<h2 class="white-color">БЛОГ<br></h2>
-							<button class="primary-btn">Читать</button>
-						</div>
-					</div>
-				</div>
-				<!-- /banner -->
-
-				<!-- Product Slick -->
-				<div class="col-md-9 col-sm-6 col-xs-6">
-					<div class="row">
-						<div id="product-slick-1" class="product-slick">
-							<!-- Product Single -->
-							<div class="product product-single">
-								<div class="product-thumb">
-									<div class="product-label">
-										<span>New</span>
-										<span class="sale">-20%</span>
-									</div>
-									<img src="./img/product01.jpg" alt="">
-								</div>
-								<div class="product-body">
-									<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-									<div class="product-rating">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o empty"></i>
-									</div>
-									<h2 class="product-name"><a href="./product-page.html">Product Name Goes Here</a></h2>
-									<div class="product-btns">
-										<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-										<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-										<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> в корзину</button>
-									</div>
-								</div>
-							</div>
-							<!-- /Product Single -->
-
-							<!-- Product Single -->
-							<div class="product product-single">
-								<div class="product-thumb">
-									<div class="product-label">
-										<span class="sale">-20%</span>
-									</div>
-									<img src="./img/product07.jpg" alt="">
-								</div>
-								<div class="product-body">
-									<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-									<div class="product-rating">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o empty"></i>
-									</div>
-									<h2 class="product-name"><a href="./product-page.html">Product Name Goes Here</a></h2>
-									<div class="product-btns">
-										<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-										<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-										<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> в корзину</button>
-									</div>
-								</div>
-							</div>
-							<!-- /Product Single -->
-
-							<!-- Product Single -->
-							<div class="product product-single">
-								<div class="product-thumb">
-									<div class="product-label">
-										<span>New</span>
-										<span class="sale">-20%</span>
-									</div>
-									<img src="./img/product06.jpg" alt="">
-								</div>
-								<div class="product-body">
-									<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-									<div class="product-rating">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o empty"></i>
-									</div>
-									<h2 class="product-name"><a href="./product-page.html">Product Name Goes Here</a></h2>
-									<div class="product-btns">
-										<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-										<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-										<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> в корзину</button>
-									</div>
-								</div>
-							</div>
-							<!-- /Product Single -->
-
-							<!-- Product Single -->
-							<div class="product product-single">
-								<div class="product-thumb">
-									<div class="product-label">
-										<span>New</span>
-										<span class="sale">-20%</span>
-									</div>
-									<img src="./img/product08.jpg" alt="">
-								</div>
-								<div class="product-body">
-									<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-									<div class="product-rating">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o empty"></i>
-									</div>
-									<h2 class="product-name"><a href="./product-page.html">Product Name Goes Here</a></h2>
-									<div class="product-btns">
-										<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-										<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-										<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> в корзину</button>
-									</div>
-								</div>
-							</div>
-							<!-- /Product Single -->
-						</div>
-					</div>
-				</div>
-				<!-- /Product Slick -->
-			</div>
-			<!-- /row -->
-
-			<!-- row -->
-			
-			<!-- /row -->
-		</div>
-		<!-- /container -->
-	</div>
-	<!-- /section -->
-
-	<!-- section -->
-
-	<!-- /section -->
-
-	<!-- section -->
-	<div class="section">
-		<!-- container -->
-		<div class="container">
-			<!-- row -->
-			<div class="row">
-				<!-- section title -->
-				<div class="col-md-12">
-					<div class="section-title">
-						<h2 class="title">Последние продукты</h2>
-					</div>
-				</div>
-				<!-- section title -->
-
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<img src="./img/product01.jpg" alt="">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">$32.50</h3>
-							<div class="product-rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o empty"></i>
-							</div>
-							<h2 class="product-name"><a href="./product-page.html">Product Name Goes Here</a></h2>
-							<div class="product-btns">
-								<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-								<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> в корзину</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Product Single -->
-
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<div class="product-label">
-								<span>New</span>
-								<span class="sale">-20%</span>
-							</div>
-							<img src="./img/product02.jpg" alt="">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-							<div class="product-rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o empty"></i>
-							</div>
-							<h2 class="product-name"><a href="./product-page.html">Product Name Goes Here</a></h2>
-							<div class="product-btns">
-								<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-								<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> в корзину</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Product Single -->
-
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<div class="product-label">
-								<span>New</span>
-								<span class="sale">-20%</span>
-							</div>
-							<img src="./img/product03.jpg" alt="">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-							<div class="product-rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o empty"></i>
-							</div>
-							<h2 class="product-name"><a href="./product-page.html">Product Name Goes Here</a></h2>
-							<div class="product-btns">
-								<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-								<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> в корзину</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Product Single -->
-
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<div class="product-label">
-								<span>New</span>
-							</div>
-							<img src="./img/product04.jpg" alt="">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">$32.50</h3>
-							<div class="product-rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o empty"></i>
-							</div>
-							<h2 class="product-name"><a href="./product-page.html">Product Name Goes Here</a></h2>
-							<div class="product-btns">
-								<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-								<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> в корзину</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Product Single -->
-			</div>
-			<!-- /row -->
-
-			<!-- row -->
-			<div class="row">
-				<!-- banner -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="banner banner-2">
-						<img src="./img/banner15.jpg" alt="">
-						<div class="banner-caption">
-							<h2 class="white-color">У нас<br>Акция</h2>
-							<button class="primary-btn">Узнать больше</button>
-						</div>
-					</div>
-				</div>
-				<!-- /banner -->
-
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<div class="product-label">
-								<span>New</span>
-								<span class="sale">-20%</span>
-							</div>
-							<img src="./img/product07.jpg" alt="">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-							<div class="product-rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o empty"></i>
-							</div>
-							<h2 class="product-name"><a href="./product-page.html">Product Name Goes Here</a></h2>
-							<div class="product-btns">
-								<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-								<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> в корзину</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Product Single -->
-
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<div class="product-label">
-								<span>New</span>
-								<span class="sale">-20%</span>
-							</div>
-							<img src="./img/product06.jpg" alt="">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-							<div class="product-rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o empty"></i>
-							</div>
-							<h2 class="product-name"><a href="./product-page.html">Product Name Goes Here</a></h2>
-							<div class="product-btns">
-								<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-								<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> в корзину</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Product Single -->
-
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<div class="product-label">
-								<span>New</span>
-								<span class="sale">-20%</span>
-							</div>
-							<img src="./img/product05.jpg" alt="">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-							<div class="product-rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o empty"></i>
-							</div>
-							<h2 class="product-name"><a href="./product-page.html">Product Name Goes Here</a></h2>
-							<div class="product-btns">
-								<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-								<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> в корзину</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Product Single -->
-			</div>
-			<!-- /row -->
-
-			<!-- row -->
-			<!-- /row -->
-		</div>
-		<!-- /container -->
-	</div>
-	<!-- /section -->
-
-	<!-- FOOTER -->
-	<footer id="footer" class="section section-grey">
-		<!-- container -->
-		<div class="container">
-			<!-- row -->
-			<div class="row">
-				<!-- footer widget -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="footer">
-						<!-- footer logo -->
-						<div class="footer-logo">
-							<a class="logo" href="#">
-		            <img src="./img/logo.png" alt="">
-		          </a>
-						</div>
-						<!-- /footer logo -->
-
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
-
-						<!-- footer social -->
-						<ul class="footer-social">
-							<li><a href="#"><img src="./img/social/fb.png" alt="" height="32" width="32"></a></li>
-							<li><a href="#"><img src="./img/social/vk.png" alt="" height="32" width="32"></a></li>
-							<li><a href="#"><img src="./img/social/inst.png" alt="" height="32" width="32"></a></li>
-						</ul>
-						<!-- /footer social -->
-					</div>
-				</div>
-				<!-- /footer widget -->
-
-				<!-- footer widget -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="footer">
-						<h3 class="footer-header">Мой аккаунт</h3>
-						<ul class="list-links">
-							<li><a href="#">Мой аккаунт</a></li>
-							<li><a href="#">Список желаний</a></li>
-							<li><a href="#">Сравнить</a></li>
-							<li><a href="#">Посчитать</a></li>
-							<li><a href="#">Войти</a></li>							
-						</ul>
-					</div>
-				</div>
-				<!-- /footer widget -->
-
-				<div class="clearfix visible-sm visible-xs"></div>
-
-				<!-- footer widget -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="footer">
-						<h3 class="footer-header">Клиентам</h3>
-						<ul class="list-links">
-							<li><a href="#">Главная</a></li>
-							<li><a href="#">Разделы</a></li>
-							<li><a href="#">Шрифты</a></li>
-							<li><a href="#">FAQ</a></li>
-						</ul>
-					</div>
-				</div>
-				<!-- /footer widget -->
-
-				<!-- footer subscribe -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="footer">
-						<h3 class="footer-header">Рассылка</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-						<form>
-							<div class="form-group">
-								<input class="input" placeholder="Введите E-Mail">
-							</div>
-							<button class="primary-btn">Подписаться на рассылку</button>
-						</form>
-					</div>
-				</div>
-				<!-- /footer subscribe -->
-			</div>
-			<!-- /row -->
-			<hr>
-			<!-- row -->
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center">
-					<!-- footer copyright -->
-					<div class="footer-copyright">
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-					</div>
-					<!-- /footer copyright -->
-				</div>
-			</div>
-			<!-- /row -->
-		</div>
-		<!-- /container -->
-	</footer>
-	<!-- /FOOTER -->
+	<!-- /container -->
+</footer>
+<!-- /FOOTER -->
 <?php $this->endBody() ?>
 </body>
 
