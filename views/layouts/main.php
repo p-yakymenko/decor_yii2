@@ -48,7 +48,7 @@ AppAsset::register($this);
 						<!-- Logo -->
 						<div class="header-logo">
 							<a class="logo-icon"><img src="/img/iconlogo.png" alt="" height="75" width="75"></a>
-							<a class="logo" href="http://kreativhandmade.in.ua">
+							<a class="logo" href="<?= \yii\helpers\Url::home() ?>">
 								<img src="/img/logo.png" alt="">
 							</a>
 						</div>
@@ -140,143 +140,144 @@ AppAsset::register($this);
 			<div class="container">
 				<div id="responsive-nav">
 					<!-- category nav -->
-					
-					<div class="category-nav">
-						<span class="category-header">Альбомы<i class="fa fa-list"></i></span>
-						<ul class="category-list">
-							<li class="dropdown side-dropdown">
 
-								<?= \app\components\MenuWidget::widget(['tpl' => 'menu'])?>
-								
-								<li><a href="<?= \yii\helpers\Url::to(['category/view', 'id' => '-1']) ?>">Смотреть все</a></li>
-							</ul>
-						</div>
-						<!-- /category nav -->
+					<div class="category-nav btn-group">
+						<span class="category-header dropdown-toggle" data-toggle="dropdown" style="cursor: pointer;">Альбомы
+							<i class="fa fa-list"></i>
+						</span>
+						<ul class="category-list dropdown-menu">
 
-						<!-- menu nav -->
-						<div class="menu-nav">
-							<span class="menu-header">Menu <i class="fa fa-bars"></i></span>
-							<ul class="menu-list">
-								<li><a href="#">Главная</a></li>
-								<li><a href="#">Альбомы</a></li>
-								<li><a href="./font-page.html">Шрифты</a></li>
-								<li><a href="#">Доставка</a></li>
-								<li><a href="#">Контакты</a></li>
-								<li><a href="#">Отзывы</a></li>
-								<li><a href="#"> </a></li>
-								<li><a href="#"> </a></li>
-								<li><a href="#"> </a></li>
-								<li><a href="#"><img src="/img/social/fb.png" alt="" height="20" width="20"></a></li>
-								<li><a href="#"><img src="/img/social/vk.png" alt="" height="20" width="20"></a></li>
-								<li><a href="#"><img src="/img/social/inst.png" alt="" height="20" width="20"></a></li>
-							</ul>
-						</div>
-						<!-- /menu nav -->
+							<?= \app\components\MenuWidget::widget(['tpl' => 'menu'])?>
+
+							<li><a href="<?= \yii\helpers\Url::to(['category/view', 'id' => '-1']) ?>">Смотреть все</a></li>
+						</ul>
 					</div>
+					<!-- /category nav -->
+
+					<!-- menu nav -->
+					<div class="menu-nav">
+						<span class="menu-header">Menu <i class="fa fa-bars"></i></span>
+						<ul class="menu-list">
+							<li><a href="<?= \yii\helpers\Url::home()?>">Главная</a></li>
+							<li><a href="#">Альбомы</a></li>
+							<li><a href="<?= \yii\helpers\Url::to('site/custom-fonts',true)?>">Шрифты</a></li>
+							<li><a href="#">Доставка</a></li>
+							<li><a href="#">Контакты</a></li>
+							<li><a href="#">Отзывы</a></li>
+							<li><a href="#"> </a></li>
+							<li><a href="#"> </a></li>
+							<li><a href="#"> </a></li>
+							<li><a href="#"><img src="/img/social/fb.png" alt="" height="20" width="20"></a></li>
+							<li><a href="#"><img src="/img/social/vk.png" alt="" height="20" width="20"></a></li>
+							<li><a href="#"><img src="/img/social/inst.png" alt="" height="20" width="20"></a></li>
+						</ul>
+					</div>
+					<!-- /menu nav -->
 				</div>
-				<!-- /container -->
 			</div>
-			<!-- /NAVIGATION -->
+			<!-- /container -->
+		</div>
+		<!-- /NAVIGATION -->
 
-			<?= $content; ?>
+		<?= $content; ?>
 
-			<!-- FOOTER -->
-			<footer id="footer" class="section section-grey">
-				<!-- container -->
-				<div class="container">
-					<!-- row -->
-					<div class="row">
-						<!-- footer widget -->
-						<div class="col-md-3 col-sm-6 col-xs-6">
-							<div class="footer">
-								<!-- footer logo -->
-								<div class="footer-logo">
-									<a class="logo" href="#">
-										<img src="/img/logo.png" alt="">
-									</a>
+		<!-- FOOTER -->
+		<footer id="footer" class="section section-grey">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<!-- footer widget -->
+					<div class="col-md-3 col-sm-6 col-xs-6">
+						<div class="footer">
+							<!-- footer logo -->
+							<div class="footer-logo">
+								<a class="logo" href="#">
+									<img src="/img/logo.png" alt="">
+								</a>
+							</div>
+							<!-- /footer logo -->
+
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
+
+							<!-- footer social -->
+							<ul class="footer-social">
+								<li><a href="#"><img src="/img/social/fb.png" alt="" height="32" width="32"></a></li>
+								<li><a href="#"><img src="/img/social/vk.png" alt="" height="32" width="32"></a></li>
+								<li><a href="#"><img src="/img/social/inst.png" alt="" height="32" width="32"></a></li>
+							</ul>
+							<!-- /footer social -->
+						</div>
+					</div>
+					<!-- /footer widget -->
+
+					<!-- footer widget -->
+					<div class="col-md-3 col-sm-6 col-xs-6">
+						<div class="footer">
+							<h3 class="footer-header">Мой аккаунт</h3>
+							<ul class="list-links">
+								<li><a href="#">Мой аккаунт</a></li>
+								<li><a href="#">Список желаний</a></li>
+								<li><a href="#">Сравнить</a></li>
+								<li><a href="#">Посчитать</a></li>
+								<li><a href="#">Войти</a></li>							
+							</ul>
+						</div>
+					</div>
+					<!-- /footer widget -->
+
+					<div class="clearfix visible-sm visible-xs"></div>
+
+					<!-- footer widget -->
+					<div class="col-md-3 col-sm-6 col-xs-6">
+						<div class="footer">
+							<h3 class="footer-header">Клиентам</h3>
+							<ul class="list-links">
+								<li><a href="#">Главная</a></li>
+								<li><a href="#">Разделы</a></li>
+								<li><a href="#">Шрифты</a></li>
+								<li><a href="#">FAQ</a></li>
+							</ul>
+						</div>
+					</div>
+					<!-- /footer widget -->
+
+					<!-- footer subscribe -->
+					<div class="col-md-3 col-sm-6 col-xs-6">
+						<div class="footer">
+							<h3 class="footer-header">Рассылка</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+							<form>
+								<div class="form-group">
+									<input class="input" placeholder="Введите E-Mail">
 								</div>
-								<!-- /footer logo -->
-
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
-
-								<!-- footer social -->
-								<ul class="footer-social">
-									<li><a href="#"><img src="/img/social/fb.png" alt="" height="32" width="32"></a></li>
-									<li><a href="#"><img src="/img/social/vk.png" alt="" height="32" width="32"></a></li>
-									<li><a href="#"><img src="/img/social/inst.png" alt="" height="32" width="32"></a></li>
-								</ul>
-								<!-- /footer social -->
-							</div>
-						</div>
-						<!-- /footer widget -->
-
-						<!-- footer widget -->
-						<div class="col-md-3 col-sm-6 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-header">Мой аккаунт</h3>
-								<ul class="list-links">
-									<li><a href="#">Мой аккаунт</a></li>
-									<li><a href="#">Список желаний</a></li>
-									<li><a href="#">Сравнить</a></li>
-									<li><a href="#">Посчитать</a></li>
-									<li><a href="#">Войти</a></li>							
-								</ul>
-							</div>
-						</div>
-						<!-- /footer widget -->
-
-						<div class="clearfix visible-sm visible-xs"></div>
-
-						<!-- footer widget -->
-						<div class="col-md-3 col-sm-6 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-header">Клиентам</h3>
-								<ul class="list-links">
-									<li><a href="#">Главная</a></li>
-									<li><a href="#">Разделы</a></li>
-									<li><a href="#">Шрифты</a></li>
-									<li><a href="#">FAQ</a></li>
-								</ul>
-							</div>
-						</div>
-						<!-- /footer widget -->
-
-						<!-- footer subscribe -->
-						<div class="col-md-3 col-sm-6 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-header">Рассылка</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-								<form>
-									<div class="form-group">
-										<input class="input" placeholder="Введите E-Mail">
-									</div>
-									<button class="primary-btn">Подписаться на рассылку</button>
-								</form>
-							</div>
-						</div>
-						<!-- /footer subscribe -->
-					</div>
-					<!-- /row -->
-					<hr>
-					<!-- row -->
-					<div class="row">
-						<div class="col-md-8 col-md-offset-2 text-center">
-							<!-- footer copyright -->
-							<div class="footer-copyright">
-								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-								Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							</div>
-							<!-- /footer copyright -->
+								<button class="primary-btn">Подписаться на рассылку</button>
+							</form>
 						</div>
 					</div>
-					<!-- /row -->
+					<!-- /footer subscribe -->
 				</div>
-				<!-- /container -->
-			</footer>
-			<!-- /FOOTER -->
-			<?php $this->endBody() ?>
-		</body>
+				<!-- /row -->
+				<hr>
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center">
+						<!-- footer copyright -->
+						<div class="footer-copyright">
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						</div>
+						<!-- /footer copyright -->
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</footer>
+		<!-- /FOOTER -->
+		<?php $this->endBody() ?>
+	</body>
 
-		</html>
-		<?php $this->endPage() ?>
+	</html>
+	<?php $this->endPage() ?>

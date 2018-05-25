@@ -2,14 +2,13 @@
 
 /* @var $this yii\web\View */
 use yii\helpers\Html;
-$this->title = 'My Yii Application';
 ?>	
 <!-- BREADCRUMB -->
 <div id="breadcrumb">
 	<div class="container">
 		<ul class="breadcrumb">
 			<li><a href="#">Главная</a></li>
-			<li class="active">Товары</li>
+			<li class="active"><?= (isset($category->name)) ? $category->name : 'Все товары'; ?></li>
 		</ul>
 	</div>
 </div>

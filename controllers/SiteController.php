@@ -4,13 +4,13 @@ namespace app\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
-use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Product;
 
-class SiteController extends Controller
+class SiteController extends AppController
 {
     /**
      * {@inheritdoc}
@@ -61,7 +61,11 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $hits = Product::find()->where(['hit' => '1'])->limit(3)->all();
+        $news = Product::find()->where(['new' => '1'])->limit(4)->all();
+        $sales = Product::find()->where(['sale' => '1'])->all();
+        $this->setMeta('Креативная мастерская');
+        return $this->render('index', compact('hits','news','sales'));
     }
 
     /**
@@ -124,5 +128,16 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    /**
+     * Displays fonts page.
+     *
+     * @return string
+     */
+    public function actionCustomFonts()
+    {
+        $this->setMeta('Креативная мастерская | Шрифты');
+        return $this->render('custom_fonts');
     }
 }
