@@ -7,7 +7,7 @@ use yii\helpers\Html;
 <div id="breadcrumb">
 	<div class="container">
 		<ul class="breadcrumb">
-			<li><a href="#">Главная</a></li>
+			<li><a href="<?= \yii\helpers\Url::home() ?>">Главная</a></li>
 			<li class="active"><?= (isset($category->name)) ? $category->name : 'Все товары'; ?></li>
 		</ul>
 	</div>

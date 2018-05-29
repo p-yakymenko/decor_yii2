@@ -5,9 +5,8 @@ use yii\helpers\Html;
 ?>
 
 <?php
-$custom_fonts_directory = '/var/www/fbmarinahandma/data/www/kreativhandmade.in.ua/web/custom-fonts';
-         //$custom_fonts_directory = \yii\helpers\Url::to('web/custom-fonts', true);
-$fonts_array = scandir($custom_fonts_directory);
+$custom_fonts_directory = '/web/custom-fonts';
+$fonts_array = scandir($_SERVER['DOCUMENT_ROOT'].$custom_fonts_directory);
 
 $array_length = count($fonts_array);
 
@@ -37,7 +36,7 @@ $fonts_count += 1;
 		<div id="breadcrumb">
 			<div class="container">
 				<ul class="breadcrumb">
-					<li><a href="#">Главная</a></li>
+					<li><a href="<?= \yii\helpers\Url::home() ?>">Главная</a></li>
 					<li class="active">Выбор Шрифта</li>
 				</ul>
 			</div>

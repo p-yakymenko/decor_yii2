@@ -41,33 +41,13 @@ AppAsset::register($this);
 		<?php $this->beginBody() ?>
 		<!-- HEADER -->
 		<header>
-			<!-- top Header -->
-			<div id="top-header">
-				<div class="container">
-					<div class="pull-left">
-						<span>Добро пожаловать</span>
-					</div>
-					<div class="pull-right">
-						<ul class="header-top-links">
-							<li><a href="#">Магазин</a></li>
-							<li><a href="#">Блог</a></li>
-							<li><a href="#">FAQ</a></li>
-							
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<!-- /top Header -->
-
 	<!-- header -->
 	<div id="header">
 		<div class="container">
 			<div class="pull-left">
 				<!-- Logo -->
 				<div class="header-logo">
-					<a class="logo" href="http://kreativhandmade.in.ua">
+					<a class="logo" href="<?= \yii\helpers\Url::home()?>">
 						<img src="/img/logo.png" alt="">
 					</a>
 				</div>
@@ -115,43 +95,48 @@ AppAsset::register($this);
 	<!-- container -->
 	<div class="container">
 		<div id="responsive-nav">
-			<!-- category nav -->
-<!-- 				<div class="category-nav">
-	<span class="category-header">Категории <i class="fa fa-list"></i></span>
-	<ul class="category-list">
-		<li class="dropdown side-dropdown">
-	</ul>
-</div> -->
-<!-- /category nav -->
+			<!-- menu nav -->
+			<div class="menu-nav">
+				<span class="menu-header">Menu <i class="fa fa-bars"></i></span>
+				<ul class="menu-list">
+					<li><a href="<?=\yii\helpers\Url::to(['/admin']) ?>">Главная</a></li>
+					<li class="dropdown default-dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Категории <i class="fa fa-caret-down"></i></a>
+						<ul class="custom-menu">
+							<li><a href="<?=\yii\helpers\Url::to(['category/index']) ?>">Список категорий</a></li>
+							<li><a href="<?=\yii\helpers\Url::to(['category/create']) ?>">Добавить категорию</a></li>
+						</ul>
+					</li>
+					<li class="dropdown default-dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Товары <i class="fa fa-caret-down"></i></a>
+						<ul class="custom-menu">
+							<li><a href="<?=\yii\helpers\Url::to(['product/index']) ?>">Список товаров</a></li>
+							<li><a href="<?=\yii\helpers\Url::to(['product/create']) ?>">Добавить товар</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Продажи</a></li>
+					<li><a href="#">Доставка</a></li>		
 
-<!-- menu nav -->
-<div class="menu-nav">
-	<span class="menu-header">Menu <i class="fa fa-bars"></i></span>
-	<ul class="menu-list">
-		<li><a href="#">Главная</a></li>
-		<li><a href="#">Категории</a></li>
-		<li><a href="#">Магазин</a></li>
-		<li><a href="#">Продажи</a></li>
-		<li><a href="#">Доставка</a></li>		
-		<li class="dropdown default-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Блог <i class="fa fa-caret-down"></i></a>
-			<ul class="custom-menu">
-				<li><a href="index.html">Home</a></li>
-				<li><a href="products.html">Products</a></li>
-				<li><a href="product-page.html">Product Details</a></li>
-				<li><a href="checkout.html">Checkout</a></li>
-			</ul>
-		</li>
-		<?php if(!Yii::$app->user->isGuest): ?>
-			<li><a href="<?= \yii\helpers\Url::to(['/site/logout'])?>"><i class="fa fa-user"></i> <?= Yii::$app->user->identity['username']?> (Выход)</a></li>
-		<?php endif;?>
-	</ul>
-</div>
-<!-- menu nav -->
-</div>
-</div>
-<!-- /container -->
+					<?php if(!Yii::$app->user->isGuest): ?>
+						<li><a href="<?= \yii\helpers\Url::to(['/site/logout'])?>"><i class="fa fa-user"></i> <?= Yii::$app->user->identity['username']?> (Выход)</a></li>
+					<?php endif;?>
+				</ul>
+			</div>
+			<!-- menu nav -->
+		</div>
+	</div>
+	<!-- /container -->
 </div>
 <!-- /NAVIGATION -->
+
+<div class="container">
+	<?php if( Yii::$app->session->hasFlash('success') ): ?>
+		<div class="alert alert-success alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<?php echo Yii::$app->session->getFlash('success'); ?>
+		</div>
+	<?php endif;?>
+	<br>
+	<?= $content; ?>
+</div>
 
 <!-- FOOTER -->
 <footer id="footer" class="section section-grey">

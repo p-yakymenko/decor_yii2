@@ -47,7 +47,7 @@ AppAsset::register($this);
 					<div class="pull-left">
 						<!-- Logo -->
 						<div class="header-logo">
-							<a class="logo-icon"><img src="/img/iconlogo.png" alt="" height="75" width="75"></a>
+							<a class="logo-icon"></a>
 							<a class="logo" href="<?= \yii\helpers\Url::home() ?>">
 								<img src="/img/logo.png" alt="">
 							</a>
