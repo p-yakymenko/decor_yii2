@@ -3,10 +3,10 @@
 
   // NAVIGATION
   var responsiveNav = $('#responsive-nav'),
-    catToggle = $('#responsive-nav .category-nav .category-header'),
-    catList = $('#responsive-nav .category-nav .category-list'),
-    menuToggle = $('#responsive-nav .menu-nav .menu-header'),
-    menuList = $('#responsive-nav .menu-nav .menu-list');
+  catToggle = $('#responsive-nav .category-nav .category-header'),
+  catList = $('#responsive-nav .category-nav .category-list'),
+  menuToggle = $('#responsive-nav .menu-nav .menu-header'),
+  menuList = $('#responsive-nav .menu-nav .menu-list');
 
   catToggle.on('click', function() {
     menuList.removeClass('open');
@@ -54,21 +54,21 @@
     arrows: false,
     appendDots: '.product-slick-dots-1',
     responsive: [{
-        breakpoint: 991,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          dots: false,
-          arrows: true,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        }
-      },
+      breakpoint: 991,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        dots: false,
+        arrows: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      }
+    },
     ]
   });
 
@@ -82,21 +82,21 @@
     arrows: false,
     appendDots: '.product-slick-dots-2',
     responsive: [{
-        breakpoint: 991,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          dots: false,
-          arrows: true,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        }
-      },
+      breakpoint: 991,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        dots: false,
+        arrows: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      }
+    },
     ]
   });
 
@@ -143,5 +143,29 @@
       }
     });
   }
+
+  // PAGINATION
+  $(document).ready(function (){
+    $('ul.pagination').addClass('store-pages').prepend('<li><span class="text-uppercase">Страница:</span></li>');
+  });
+
+  //CART
+  $('.add-to-cart').on('click', function (e) {
+        e.preventDefault();
+        var id = $(this).data('id');
+        $.ajax({
+            url: '/cart/add',
+            data: {id: id},
+            type: 'GET',
+            success: function(res){
+                if(!res) alert('Ошибка!');
+                console.log(res);
+                //showCart(res);
+            },
+            error: function(){
+                alert('Error!');
+            }
+        });
+    });
 
 })(jQuery);

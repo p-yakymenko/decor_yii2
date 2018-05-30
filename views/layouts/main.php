@@ -62,7 +62,7 @@ AppAsset::register($this);
 									<div class="header-btns-icon">
 										<img src="/img/account.png" alt="" height="40" width="40">
 									</div>
-									<strong class="text-uppercase">Мой аккант <i class="fa fa-caret-down"></i></strong>
+									<strong class="text-uppercase">Мой аккаунт <i class="fa fa-caret-down"></i></strong>
 								</div>
 								<a href="#" class="text-uppercase" style="font-size: 10px;">Войти</a> / <a href="#" class="text-uppercase" style="font-size: 10px" >Создать</a>
 								<ul class="custom-menu">
@@ -83,7 +83,7 @@ AppAsset::register($this);
 										<img src="/img/cart.png" alt="" height="40" width="40">
 										<span class="qty">3</span>
 									</div>
-									<strong class="text-uppercase">Моя коризна:</strong>
+									<strong class="text-uppercase">Моя корзина:</strong>
 									<br>
 									<span>35.20$</span>
 								</a>

@@ -157,13 +157,18 @@ use yii\helpers\Html;
 								<option value="2">30</option>
 							</select>
 						</div>
-						<ul class="store-pages">
+						<?php
+						echo \yii\widgets\LinkPager::widget([
+							'pagination' => $pages,
+						]);
+						?>
+						<!-- <ul class="store-pages">
 							<li><span class="text-uppercase">Страница:</span></li>
 							<li class="active">1</li>
 							<li><a href="#">2</a></li>
 							<li><a href="#">3</a></li>
 							<li><a href="#"><i class="fa fa-caret-right"></i></a></li>
-						</ul>
+						</ul> -->
 					</div>
 				</div>
 				<!-- /store top filter -->
@@ -175,7 +180,12 @@ use yii\helpers\Html;
 
 						<?php if(!empty($products)): ?>
 							<?php $i = 0; foreach($products as $product): ?>
-
+							<?php $mainImg = $product->getImage();?>
+							<?php
+							$url =  strrev($mainImg->getUrl());
+							$str = strpos($url, "?");
+							$url = '/yii2images/images/image-by-item-and-alias?'.strrev(substr($url, 0, $str));
+							?>
 							<!-- Product Single -->					
 							<div class="col-md-4 col-sm-6 col-xs-6">
 								<div class="product product-single">
@@ -190,7 +200,7 @@ use yii\helpers\Html;
 										</div>
 										<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
 
-										<?= Html::img("@web/img/{$product->img}", ['alt' => $product->name])?>
+										<?= Html::img($url, ['alt' => $product->name])?>
 										
 									</div>
 									<div class="product-body">
@@ -202,7 +212,7 @@ use yii\helpers\Html;
 											<i class="fa fa-star"></i>
 											<i class="fa fa-star-o empty"></i>
 										</div>
-										<h2 class="product-name"><a href="#"><?= $product->name?></a></h2>
+										<h2 class="product-name"><a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $product->id]) ?>"><?= $product->name?></a></h2>
 										<div class="product-btns">
 											<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
 											<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>

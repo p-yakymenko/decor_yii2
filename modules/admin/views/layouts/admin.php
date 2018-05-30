@@ -62,7 +62,7 @@ AppAsset::register($this);
 								<img src="/img/account.jpg" alt="" height="42" width="42">
 								
 							</div>
-							<strong class="text-uppercase">Мой аккант <i class="fa fa-caret-down"></i></strong>
+							<strong class="text-uppercase">Мой аккаунт <i class="fa fa-caret-down"></i></strong>
 						</div>
 						<a href="#" class="text-uppercase" style="font-size: 10px;">Войти</a> / <a href="#" class="text-uppercase" style="font-size: 10px" >Создать</a>
 						<ul class="custom-menu">

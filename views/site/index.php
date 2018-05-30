@@ -90,6 +90,12 @@ use yii\helpers\Html;
                         <!-- Product Single -->
                         <?php if( !empty($sales) ): ?>
                             <?php foreach($sales as $sale): ?>
+                                <?php $mainImg = $sale->getImage();?>
+                                <?php
+                                $url =  strrev($mainImg->getUrl());
+                                $str = strpos($url, "?");
+                                $url = '/yii2images/images/image-by-item-and-alias?'.strrev(substr($url, 0, $str));
+                                ?>
                                 <div class="product product-single">
                                     <div class="product-thumb">
                                         <div class="product-label">
@@ -100,7 +106,7 @@ use yii\helpers\Html;
                                                 <span class="sale">-20%</span>
                                             <?php endif; ?>
                                         </div>
-                                        <?= Html::img("@web/img/{$sale->img}", ['alt' => $sale->name])?>                                       
+                                        <?= Html::img($url, ['alt' => $sale->name])?>                                       
                                     </div>
                                     <div class="product-body">
                                         <h3 class="product-price">$<?= $sale->price?> <del class="product-old-price">$<?= (float)$sale->price?></del></h3>
@@ -111,7 +117,7 @@ use yii\helpers\Html;
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star-o empty"></i>
                                         </div>
-                                        <h2 class="product-name"><a href="./product-page.html"><?= $sale->name?></a></h2>
+                                        <h2 class="product-name"><a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $sale->id]) ?>"><?= $sale->name?></a></h2>
                                         <div class="product-btns">
                                             <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
                                             <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
@@ -159,6 +165,12 @@ use yii\helpers\Html;
             <!-- Product Single -->
             <?php if( !empty($news) ): ?>
                 <?php foreach($news as $new): ?>
+                    <?php $mainImg = $new->getImage();?>
+                    <?php
+                    $url =  strrev($mainImg->getUrl());
+                    $str = strpos($url, "?");
+                    $url = '/yii2images/images/image-by-item-and-alias?'.strrev(substr($url, 0, $str));
+                    ?>
                     <div class="col-md-3 col-sm-6 col-xs-6">
                         <div class="product product-single">
                             <div class="product-thumb">
@@ -170,7 +182,7 @@ use yii\helpers\Html;
                                         <span class="sale">-20%</span>
                                     <?php endif; ?>
                                 </div>
-                                <?= Html::img("@web/img/{$new->img}", ['alt' => $new->name])?>                                       
+                                <?= Html::img($url, ['alt' => $new->name])?>                                       
                             </div>
                             <div class="product-body">
                                 <h3 class="product-price">$<?= $new->price?> <del class="product-old-price">$<?= (float)$new->price?></del></h3>
@@ -181,7 +193,7 @@ use yii\helpers\Html;
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star-o empty"></i>
                                 </div>
-                                <h2 class="product-name"><a href="./product-page.html"><?= $new->name?></a></h2>
+                                <h2 class="product-name"><a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $new->id]) ?>"><?= $new->name?></a></h2>
                                 <div class="product-btns">
                                     <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
                                     <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
@@ -213,6 +225,12 @@ use yii\helpers\Html;
             <!-- Product Single -->
             <?php if( !empty($hits) ): ?>
                 <?php foreach($hits as $hit): ?>
+                    <?php $mainImg = $hit->getImage();?>
+                    <?php
+                    $url =  strrev($mainImg->getUrl());
+                    $str = strpos($url, "?");
+                    $url = '/yii2images/images/image-by-item-and-alias?'.strrev(substr($url, 0, $str));
+                    ?>
                     <div class="col-md-3 col-sm-6 col-xs-6">
                         <div class="product product-single">
                             <div class="product-thumb">
@@ -224,7 +242,7 @@ use yii\helpers\Html;
                                         <span class="sale">-20%</span>
                                     <?php endif; ?>
                                 </div>
-                                <?= Html::img("@web/img/{$hit->img}", ['alt' => $hit->name])?>                                       
+                                <?= Html::img($url, ['alt' => $hit->name])?>                                       
                             </div>
                             <div class="product-body">
                                 <h3 class="product-price">$<?= $hit->price?> <del class="product-old-price">$<?= (float)$hit->price?></del></h3>
@@ -235,7 +253,7 @@ use yii\helpers\Html;
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star-o empty"></i>
                                 </div>
-                                <h2 class="product-name"><a href="./product-page.html"><?= $hit->name?></a></h2>
+                                <h2 class="product-name"><a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $hit->id]) ?>"><?= $hit->name?></a></h2>
                                 <div class="product-btns">
                                     <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
                                     <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
