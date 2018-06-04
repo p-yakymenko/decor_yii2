@@ -47,7 +47,7 @@ $gallery = $product->getImages();
 					</div>
 				</div>
 				<div class="col-md-6">
-					<div class="product-body">
+					<div class="product-body main-view">
 						<div class="product-label">
                                     <?php if($product->new): ?>
                                         <span>New</span>
@@ -57,7 +57,7 @@ $gallery = $product->getImages();
                                     <?php endif; ?>
                                 </div>
 						<h2 class="product-name"><?= $product->name?></h2>
-						<h3 class="product-price">$<?= $product->price?> <del class="product-old-price">$<?= $product->price?></del></h3>
+						<h3 class="product-price"><?= $product->price?>$ <del class="product-old-price"><?= $product->price?>$</del></h3>
 						<div>
 							<div class="product-rating">
 								<i class="fa fa-star"></i>
@@ -72,27 +72,20 @@ $gallery = $product->getImages();
 						<p><strong>Альбом:</strong> <?= $product->category->name?></p>
 						<p><?= $product->content?></p>
 						<div class="product-options">
-							<!--
-								<ul class="size-option">
-									<li><span class="text-uppercase">Size:</span></li>
-									<li class="active"><a href="#">S</a></li>
-									<li><a href="#">XL</a></li>
-									<li><a href="#">SL</a></li>
-								</ul>
-								<ul class="color-option">
-									<li><span class="text-uppercase">Color:</span></li>
-									<li class="active"><a href="#" style="background-color:#475984;"></a></li>
-									<li><a href="#" style="background-color:#8A2454;"></a></li>
-									<li><a href="#" style="background-color:#BF6989;"></a></li>
-									<li><a href="#" style="background-color:#9A54D8;"></a></li>
-								</ul>
-							-->
+							<div class="num-font">
+								<span class="text-uppercase">Номер шрифта: </span>
+								<input class="input" type="number" min="1" value="1">
+							</div>
+							<div class="txt-input">
+								<span class="text-uppercase">Надпись: </span>
+								<input class="input" type="text">
+							</div>
 						</div>
 
 						<div class="product-btns">
 							<div class="qty-input">
 								<span class="text-uppercase">Кол-во: </span>
-								<input class="input" type="number">
+								<input class="input" type="number" min="1" value="1">
 							</div>
 							<a href="<?= \yii\helpers\Url::to(['cart/add', 'id' => $product->id])?>" class="btn primary-btn add-to-cart" data-id="<?= $product->id?>"><i class="fa fa-shopping-cart"></i> В Корзину</a>
 							<div class="pull-right">
@@ -277,7 +270,7 @@ $gallery = $product->getImages();
                                 <div class="product-btns">
                                     <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
                                     <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-                                    <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> в корзину</button>
+                                    <a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $hit->id]) ?>" class="btn primary-btn add-to-cart" data-id="<?= $hit->id?>"><i class="fa fa-shopping-cart"></i> В Корзину</a>
                                 </div>
                             </div>
                         </div>

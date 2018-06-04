@@ -64,51 +64,59 @@ $fonts_count += 1;
 									<hr>
 									<form>
 										<h3>Вариации шрифтов</h3>
-										<?php
-										$c_font_counter = 0;
-										foreach($custom_fonts as $custom_font){ ?>
-											<div class="radio">
-												<label><input type="radio" name="optradio"><div id="fontShocaseBox<?= $c_font_counter ?>" style="font-family: <?= $custom_font ?>; font-size: 24px;">Тестовая надпись</div></label>
-											</div>
-											<?php
-											$c_font_counter += 1;
-	} // end foreach
-	?>
+										<div class="row">
+											<div class="col-md-4">
+												<?php
+												$c_font_counter = 0;
+												foreach($custom_fonts as $custom_font){ ?>										
+													<div class="radio">
+														<label><input type="radio" name="optradio"><div id="fontShocaseBox<?= $c_font_counter ?>" style="font-family: <?= $custom_font ?>; font-size: 24px;"><?= $c_font_counter+1 ?>) Тестовая надпись</div></label>
+													</div>
+													<?php
+													$c_font_counter += 1;
+													if ($c_font_counter % 11 == 0) {
+														?>
+													</div><div class="col-md-4">
+														<?php
+													}
+	                                        } // end foreach
+	                                        ?>
+	                                    </div>
+	                                </div>
+	                            </form>
+	                            <script>
+	                            	function updateTextSamples(){
 
-</form>
-<script>
-	function updateTextSamples(){
-		
-		var sampleText = document.getElementById('textSampleField').value;
-		
-		for(var cFontCounter = 0; cFontCounter < 33; cFontCounter++){
-			var textFontSample = document.getElementById('fontShocaseBox'+cFontCounter);
-			textFontSample.innerHTML = sampleText;
-			
-		}
-		
-		
-		
-	}
-	
-	var sampleTextField = document.getElementById('textSampleField');
-	sampleTextField.addEventListener("keydown", updateTextSamples, false);
-	sampleTextField.addEventListener("change", updateTextSamples, false);
-</script>
+	                            		var sampleText = document.getElementById('textSampleField').value;
 
-</div>
+	                            		for(var cFontCounter = 0; cFontCounter < 33; cFontCounter++){
+	                            			var textFontSample = document.getElementById('fontShocaseBox'+cFontCounter);
+	                            			textFontSample.innerHTML = sampleText;
+
+	                            		}
 
 
-</div>
-</div>
 
-</div>
-<!-- /Product Details -->
-</div>
-<!-- /row -->
-</div>
-<!-- /container -->
-</div>
-<!-- /section -->
+	                            	}
+
+	                            	var sampleTextField = document.getElementById('textSampleField');
+	                            	sampleTextField.addEventListener("keydown", updateTextSamples, false);
+	                            	sampleTextField.addEventListener("change", updateTextSamples, false);
+	                            </script>
+
+	                        </div>
+
+
+	                    </div>
+	                </div>
+
+	            </div>
+	            <!-- /Product Details -->
+	        </div>
+	        <!-- /row -->
+	    </div>
+	    <!-- /container -->
+	</div>
+	<!-- /section -->
 
 

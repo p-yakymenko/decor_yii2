@@ -121,7 +121,7 @@ use yii\helpers\Html;
                                         <div class="product-btns">
                                             <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
                                             <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-                                            <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> в корзину</button>
+                                            <a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $sale->id]) ?>" class="btn primary-btn add-to-cart" data-id="<?= $sale->id?>"><i class="fa fa-shopping-cart"></i> В Корзину</a>
                                         </div>
                                     </div>
                                 </div>
@@ -197,7 +197,7 @@ use yii\helpers\Html;
                                 <div class="product-btns">
                                     <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
                                     <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-                                    <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> в корзину</button>
+                                    <a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $new->id]) ?>" class="btn primary-btn add-to-cart" data-id="<?= $new->id?>"><i class="fa fa-shopping-cart"></i> В Корзину</a>
                                 </div>
                             </div>
                         </div>
@@ -257,7 +257,7 @@ use yii\helpers\Html;
                                 <div class="product-btns">
                                     <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
                                     <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-                                    <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> в корзину</button>
+                                    <a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $hit->id]) ?>" class="btn primary-btn add-to-cart" data-id="<?= $hit->id?>"><i class="fa fa-shopping-cart"></i> В Корзину</a>
                                 </div>
                             </div>
                         </div>
