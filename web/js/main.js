@@ -196,6 +196,9 @@
     $('.header-btns-icon>span').text(0);    
     $('.header-cart>.dropdown-toggle>span').text((0)+'$');
     $('.product.product-widget').remove();
+    $('#shopping-cart .shopping-cart-btns').hide();
+    $('#shopping-cart .empty-cart').show();
+
   });
 
   
@@ -220,15 +223,24 @@
     var price = parseFloat($('.header-cart>.dropdown-toggle>span').text())-priceItem*qty;
     $('.header-cart>.dropdown-toggle>span').text((price)+'$');
     $('.product.product-widget[data-id = "'+id+'"]').remove();
+    if ($("#shopping-cart").find(".product.product-widget").length == 0) {
+      $('#shopping-cart .empty-cart').show();
+      $('#shopping-cart .shopping-cart-btns').hide();
+    }
+    else{
+      $('#shopping-cart .empty-cart').hide();
+      $('#shopping-cart .shopping-cart-btns').show();
+    } 
+
   });
   
   
   $('.product-body.main-view .add-to-cart').on('click', function (e) {
     e.preventDefault();
     var id = $(this).data('id');
-    var font = $('.num-font>input').val();
+    var font = (parseInt($('.num-font>input').val()) > 0) ? $('.num-font>input').val() : 1;
     var text = $('.txt-input>input').val();
-    var qty = $('.qty-input>input').val();
+    var qty = (parseInt($('.qty-input>input').val()) > 0) ? $('.qty-input>input').val() : 1;
     var idNew = id+'&'+font+text;
     var priceItem = parseFloat($('.product-body.main-view>.product-price').text());
     var name = $('.product-body.main-view>.product-name').text();
@@ -267,8 +279,65 @@
     $('.header-btns-icon>span').text(parseInt($('.header-btns-icon>span').text())+parseInt(qty));    
     var price = parseFloat($('.header-cart>.dropdown-toggle>span').text())+priceItem*qty;
     $('.header-cart>.dropdown-toggle>span').text((price)+'$');
+    $('#shopping-cart .empty-cart').hide();
+    $('#shopping-cart .shopping-cart-btns').show();
 
   });
 
 
-})(jQuery);
+  var shipping = parseFloat($('.shiping-methods input:checked').val());  
+  $('.shiping-methods input').on('click', function () {
+    var subTotal = parseFloat($('.order-summary tfoot .sub-total').text());
+    shipping = parseFloat($(this).val());
+    (!shipping) ? $('.order-summary tfoot .shipping>td').text('Бесплатная доставка') : $('.order-summary tfoot .shipping>td').text(shipping+'$');
+    $('.order-summary tfoot .total').text((subTotal+shipping)+'$');
+    $('.order-summary input[name = "shipping"]').val(shipping);    
+  });
+
+
+  $(document).ready(function (){
+    if ($("#shopping-cart").find(".product.product-widget").length == 0) {
+      $('#shopping-cart .empty-cart').show();
+      $('#shopping-cart .shopping-cart-btns').hide();
+    }
+    else{
+      $('#shopping-cart .empty-cart').hide();
+      $('#shopping-cart .shopping-cart-btns').show();
+    }
+
+    var subTotal = parseFloat($('.order-summary tfoot .sub-total').text());
+    (!shipping) ? $('.order-summary tfoot .shipping>td').text('Бесплатная доставка') : $('.order-summary tfoot .shipping>td').text(shipping+'$');    
+    $('.order-summary tfoot .total').text((subTotal+shipping)+'$');
+    $('.order-summary input[name = "shipping"]').val(shipping);  
+  });
+
+
+  $('#shopping-cart .shopping-cart-btns .primary-btn').on('click', function () {
+    location = checkout;
+  });
+
+
+  $('.order-summary .del-item').on('click', function () {
+    var id = $(this).data('id');
+    var totalItem = parseFloat($('.order-summary tr[data-id = "'+id+'"] .total>strong').text());  
+    $.ajax({
+      url: '/cart/del-item-view',
+      data: {id: id},
+      type: 'GET',
+      success: function(res){
+        if(!res) alert('Ошибка!');
+        if ($('.order-summary').find('tbody>tr').length == 0) location = checkout;
+      },
+      error: function(){
+        alert('Error!');
+      }
+    });
+
+    var price = parseFloat($('.order-summary tfoot .sub-total').text())-totalItem;
+    $('.order-summary tfoot .sub-total').text((price)+'$');
+    $('.order-summary tfoot .total').text((price+shipping)+'$');   
+    $('.order-summary tr[data-id = "'+id+'"]').remove();    
+  });
+
+
+  })(jQuery);

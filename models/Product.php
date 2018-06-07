@@ -23,4 +23,12 @@ class Product extends ActiveRecord{
         return $this->hasOne(Category::className(), ['id' => 'category_id']);
     }
 
+     /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getOrderItems()
+    {
+        return $this->hasMany(OrderItems::className(), ['product_id' => 'id']);
+    }
+
 } 

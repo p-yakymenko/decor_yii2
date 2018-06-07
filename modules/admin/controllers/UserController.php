@@ -3,16 +3,15 @@
 namespace app\modules\admin\controllers;
 
 use Yii;
-use app\modules\admin\models\Product;
+use app\modules\admin\models\User;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\UploadedFile;
 
 /**
- * ProductController implements the CRUD actions for Product model.
+ * UserController implements the CRUD actions for User model.
  */
-class ProductController extends AppAdminController
+class UserController extends AppAdminController
 {
     /**
      * {@inheritdoc}
@@ -30,13 +29,13 @@ class ProductController extends AppAdminController
     }
 
     /**
-     * Lists all Product models.
+     * Lists all User models.
      * @return mixed
      */
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Product::find(),
+            'query' => User::find(),
         ]);
 
         return $this->render('index', [
@@ -45,7 +44,7 @@ class ProductController extends AppAdminController
     }
 
     /**
-     * Displays a single Product model.
+     * Displays a single User model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,26 +57,23 @@ class ProductController extends AppAdminController
     }
 
     /**
-     * Creates a new Product model.
+     * Creates a new User model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Product();
+        $model = new User();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-
-            $model->image = UploadedFile::getInstance($model, 'image');
-            if( $model->image ){
-                $model->upload();
+        if ($model->load(Yii::$app->request->post())) {           
+            $model->password = Yii::$app->security->generatePasswordHash($model->password);
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', 'Пользователь создан!');
+                return $this->redirect(['view', 'id' => $model->id]);
             }
-            unset($model->image);
-            $model->gallery = UploadedFile::getInstances($model, 'gallery');
-            $model->uploadGallery();
-            
-            Yii::$app->session->setFlash('success', "Товар {$model->name} добавлен");
-            return $this->redirect(['view', 'id' => $model->id]);
+            else{
+                Yii::$app->session->setFlash('error', 'Ошибка!');
+            }           
         }
 
         return $this->render('create', [
@@ -86,7 +82,7 @@ class ProductController extends AppAdminController
     }
 
     /**
-     * Updates an existing Product model.
+     * Updates an existing User model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -96,27 +92,25 @@ class ProductController extends AppAdminController
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-
-            $model->image = UploadedFile::getInstance($model, 'image');
-            if( $model->image ){
-                $model->upload();
+        if ($model->load(Yii::$app->request->post())) {                  
+            $model->password = Yii::$app->security->generatePasswordHash($model->password);
+            $model->auth_key = NULL;
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', 'Пользователь изменен!');
+                return $this->redirect(['view', 'id' => $model->id]);
             }
-            unset($model->image);
-            $model->gallery = UploadedFile::getInstances($model, 'gallery');
-            $model->uploadGallery();
-
-            Yii::$app->session->setFlash('success', "Товар {$model->name} обновлен");
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+            else{
+                Yii::$app->session->setFlash('error', 'Ошибка!');
+            }           
         }
+
+        return $this->render('update', [
+            'model' => $model,
+        ]);
     }
 
     /**
-     * Deletes an existing Product model.
+     * Deletes an existing User model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -125,20 +119,20 @@ class ProductController extends AppAdminController
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-        Yii::$app->session->setFlash('success', "Товар удалён");
+        Yii::$app->session->setFlash('success', 'Пользователь удален!');
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Product model based on its primary key value.
+     * Finds the User model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Product the loaded model
+     * @return User the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Product::findOne($id)) !== null) {
+        if (($model = User::findOne($id)) !== null) {
             return $model;
         }
 

@@ -62,16 +62,16 @@ AppAsset::register($this);
 								<img src="/img/account.jpg" alt="" height="42" width="42">
 								
 							</div>
-							<strong class="text-uppercase">Мой аккаунт <i class="fa fa-caret-down"></i></strong>
+							<strong class="text-uppercase">Пользователи <i class="fa fa-caret-down"></i></strong>
 						</div>
-						<a href="#" class="text-uppercase" style="font-size: 10px;">Войти</a> / <a href="#" class="text-uppercase" style="font-size: 10px" >Создать</a>
+						<!-- <a href="#" class="text-uppercase" style="font-size: 10px;">Войти</a> / <a href="#" class="text-uppercase" style="font-size: 10px" >Создать</a> -->
 						<ul class="custom-menu">
-							<li><a href="#"><i class="fa fa-user-o"></i> Мой аккант</a></li>
-							<li><a href="#"><i class="fa fa-heart-o"></i> Список желаний</a></li>
+							<li><a href="<?=\yii\helpers\Url::to(['user/index']) ?>"><i class="fa fa-user-o"></i> Список пользователей</a></li>
+							<!-- <li><a href="#"><i class="fa fa-heart-o"></i> </a></li>
 							<li><a href="#"><i class="fa fa-exchange"></i> Сравнение</a></li>
 							<li><a href="#"><i class="fa fa-check"></i> Посчитать</a></li>
-							<li><a href="#"><i class="fa fa-unlock-alt"></i> Войти</a></li>
-							<li><a href="#"><i class="fa fa-user-plus"></i> Создать аккаунт</a></li>
+							<li><a href="#"><i class="fa fa-unlock-alt"></i> Войти</a></li> -->
+							<li><a href="<?=\yii\helpers\Url::to(['user/create']) ?>"><i class="fa fa-user-plus"></i> Добавить пользователя</a></li>
 						</ul>
 					</li>
 					<!-- /Account -->
@@ -111,9 +111,7 @@ AppAsset::register($this);
 							<li><a href="<?=\yii\helpers\Url::to(['product/index']) ?>">Список товаров</a></li>
 							<li><a href="<?=\yii\helpers\Url::to(['product/create']) ?>">Добавить товар</a></li>
 						</ul>
-					</li>
-					<li><a href="#">Продажи</a></li>
-					<li><a href="#">Доставка</a></li>		
+					</li>		
 
 					<?php if(!Yii::$app->user->isGuest): ?>
 						<li><a href="<?= \yii\helpers\Url::to(['/site/logout'])?>"><i class="fa fa-user"></i> <?= Yii::$app->user->identity['username']?> (Выход)</a></li>
@@ -129,11 +127,18 @@ AppAsset::register($this);
 
 <div class="container">
 	<?php if( Yii::$app->session->hasFlash('success') ): ?>
-		<div class="alert alert-success alert-dismissible" role="alert">
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<?php echo Yii::$app->session->getFlash('success'); ?>
-		</div>
-	<?php endif;?>
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <?php echo Yii::$app->session->getFlash('success'); ?>
+        </div>
+    <?php endif;?>
+
+    <?php if( Yii::$app->session->hasFlash('error') ): ?>
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <?php echo Yii::$app->session->getFlash('error'); ?>
+        </div>
+    <?php endif;?>
 	<br>
 	<?= $content; ?>
 </div>

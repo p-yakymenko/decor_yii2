@@ -5,10 +5,10 @@
                 <tr>
                     <th>Фото</th>
                     <th>Наименование</th>
-                    <th>Кол-во</th>
-                    <th>Цена</th>
                     <th>Шрифт</th>
                     <th>Надпись</th>
+                    <th>Кол-во</th>
+                    <th>Цена</th>                   
                     <th><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></th>
                 </tr>
             </thead>
@@ -17,10 +17,10 @@
                 <tr>
                     <td><?= \yii\helpers\Html::img($item['img'], ['alt' => $item['name'], 'height' => 50]) ?></td>
                     <td><?= $item['name']?></td>
-                    <td><?= $item['qty']?></td>
-                    <td><?= $item['price']?></td>
                     <td><?= $item['font']?></td>
                     <td><?= $item['text']?></td>
+                    <td><?= $item['qty']?></td>
+                    <td><?= $item['price']?></td>                    
                     <td><span data-id="<?= $id?>" class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></span></td>
                 </tr>
             <?php endforeach?>

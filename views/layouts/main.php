@@ -9,6 +9,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ?>
@@ -58,7 +59,7 @@ AppAsset::register($this);
 					<div class="pull-right">
 						<ul class="header-btns">
 							<!-- Account -->
-							<li class="header-account dropdown default-dropdown">
+							<!-- <li class="header-account dropdown default-dropdown">
 								<div class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="true">
 									<div class="header-btns-icon">
 										<img src="/img/account.png" alt="" height="40" width="40">
@@ -74,7 +75,7 @@ AppAsset::register($this);
 									<li><a href="#"><i class="fa fa-unlock-alt"></i> Войти</a></li>
 									<li><a href="#"><i class="fa fa-user-plus"></i> Создать аккаунт</a></li>
 								</ul>
-							</li>
+							</li> -->
 							<!-- /Account -->
 							<?php $session =Yii::$app->session;
 							$session->open();  ?>
@@ -90,9 +91,7 @@ AppAsset::register($this);
 									<span><?= (isset($session['cart.sum'])) ? $session['cart.sum'] : '0' ?>$</span>
 								</a>
 								<div class="custom-menu">
-
 									
-
 									<div id="shopping-cart">
 										<div class="shopping-cart-list">
 											
@@ -112,192 +111,191 @@ AppAsset::register($this);
 
 												<?php endforeach?>
 
-											</div>											
-											
-											<?php else: ?>
-												<h3>Корзина пуста</h3>
-											<?php endif;?>											
+											</div>																																		
+										<?php endif;?>											
 
-											<div class="shopping-cart-btns">
-												<button class="main-btn">Посмотреть корзину</button>
-												<button class="primary-btn">Оформить заказ<a href="./checkout.html" ></a> <i class="fa fa-arrow-circle-right"></i></button>
-											</div>
-										</div>										
-									</div>
-								</li>
-								<!-- /Cart -->
-
-								<!-- Mobile nav toggle-->
-								<li class="nav-toggle">
-									<button class="nav-toggle-btn main-btn icon-btn"><i class="fa fa-bars"></i></button>
-								</li>
-								<!-- / Mobile nav toggle -->
-							</ul>
-						</div>
-					</div>
-					<!-- header -->
-				</div>
-				<!-- container -->
-			</header>
-			<!-- /HEADER -->
-
-			<!-- NAVIGATION -->
-			<div id="navigation">
-				<!-- container -->
-				<div class="container">
-					<div id="responsive-nav">
-						<!-- category nav -->
-
-						<div class="category-nav btn-group">
-							<span class="category-header dropdown-toggle" data-toggle="dropdown" style="cursor: pointer;">Альбомы
-								<i class="fa fa-list"></i>
-							</span>
-							<ul class="category-list dropdown-menu">
-
-								<?= \app\components\MenuWidget::widget(['tpl' => 'menu'])?>
-
-								<li><a href="<?= \yii\helpers\Url::to(['category/view', 'id' => '-1']) ?>">Смотреть все</a></li>
-							</ul>
-						</div>
-						<!-- /category nav -->
-
-						<!-- menu nav -->
-						<div class="menu-nav">
-							<span class="menu-header">Menu <i class="fa fa-bars"></i></span>
-							<ul class="menu-list">
-								<li><a href="<?= \yii\helpers\Url::home()?>">Главная</a></li>
-								<li><a href="<?= \yii\helpers\Url::to('site/custom-fonts',true)?>">Шрифты</a></li>
-								<li><a href="#">Доставка</a></li>
-								<li><a href="#">Контакты</a></li>
-								<li><a href="#">Отзывы</a></li>
-								<li><a href="#"> </a></li>
-								<li><a href="#"> </a></li>
-								<li><a href="#"> </a></li>
-								<li><a href="#"><img src="/img/social/fb.png" alt="" height="20" width="20"></a></li>
-								<li><a href="#"><img src="/img/social/vk.png" alt="" height="20" width="20"></a></li>
-								<li><a href="#"><img src="/img/social/inst.png" alt="" height="20" width="20"></a></li>
-							</ul>
-						</div>
-						<!-- /menu nav -->
-					</div>
-				</div>
-				<!-- /container -->
-			</div>
-			<!-- /NAVIGATION -->
-
-			<?= $content; ?>
-
-			<!-- FOOTER -->
-			<footer id="footer" class="section section-grey">
-				<!-- container -->
-				<div class="container">
-					<!-- row -->
-					<div class="row">
-						<!-- footer widget -->
-						<div class="col-md-3 col-sm-6 col-xs-6">
-							<div class="footer">
-								<!-- footer logo -->
-								<div class="footer-logo">
-									<a class="logo" href="#">
-										<img src="/img/logo.png" alt="">
-									</a>
+										<h3 class="empty-cart">Корзина пуста</h3>
+										<div class="shopping-cart-btns">
+											<button class="main-btn">Посмотреть корзину</button>
+											<button class="primary-btn">Оформить заказ<i class="fa fa-arrow-circle-right"></i></button> 
+										</div>
+										<script type="text/javascript">var checkout = '<?=\yii\helpers\Url::to(['cart/view'])?>';</script>
+									</div>										
 								</div>
-								<!-- /footer logo -->
+							</li>
+							<!-- /Cart -->
 
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
-
-								<!-- footer social -->
-								<ul class="footer-social">
-									<li><a href="#"><img src="/img/social/fb.png" alt="" height="32" width="32"></a></li>
-									<li><a href="#"><img src="/img/social/vk.png" alt="" height="32" width="32"></a></li>
-									<li><a href="#"><img src="/img/social/inst.png" alt="" height="32" width="32"></a></li>
-								</ul>
-								<!-- /footer social -->
-							</div>
-						</div>
-						<!-- /footer widget -->
-
-						<!-- footer widget -->
-						<div class="col-md-3 col-sm-6 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-header">Мой аккаунт</h3>
-								<ul class="list-links">
-									<li><a href="#">Мой аккаунт</a></li>
-									<li><a href="#">Список желаний</a></li>
-									<li><a href="#">Сравнить</a></li>
-									<li><a href="#">Посчитать</a></li>
-									<li><a href="#">Войти</a></li>							
-								</ul>
-							</div>
-						</div>
-						<!-- /footer widget -->
-
-						<div class="clearfix visible-sm visible-xs"></div>
-
-						<!-- footer widget -->
-						<div class="col-md-3 col-sm-6 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-header">Клиентам</h3>
-								<ul class="list-links">
-									<li><a href="#">Главная</a></li>
-									<li><a href="#">Разделы</a></li>
-									<li><a href="#">Шрифты</a></li>
-									<li><a href="#">FAQ</a></li>
-								</ul>
-							</div>
-						</div>
-						<!-- /footer widget -->
-
-						<!-- footer subscribe -->
-						<div class="col-md-3 col-sm-6 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-header">Рассылка</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-								<form>
-									<div class="form-group">
-										<input class="input" placeholder="Введите E-Mail">
-									</div>
-									<button class="primary-btn">Подписаться на рассылку</button>
-								</form>
-							</div>
-						</div>
-						<!-- /footer subscribe -->
+							<!-- Mobile nav toggle-->
+							<li class="nav-toggle">
+								<button class="nav-toggle-btn main-btn icon-btn"><i class="fa fa-bars"></i></button>
+							</li>
+							<!-- / Mobile nav toggle -->
+						</ul>
 					</div>
-					<!-- /row -->
-					<hr>
-					<!-- row -->
-					<div class="row">
-						<div class="col-md-8 col-md-offset-2 text-center">
-							<!-- footer copyright -->
-							<div class="footer-copyright">
-								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-								Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							</div>
-							<!-- /footer copyright -->
-						</div>
-					</div>
-					<!-- /row -->
 				</div>
-				<!-- /container -->
-			</footer>
-			<!-- /FOOTER -->
+				<!-- header -->
+			</div>
+			<!-- container -->
+		</header>
+		<!-- /HEADER -->
 
-			<?php
-			\yii\bootstrap\Modal::begin([
-				'header' => '<h2>Корзина</h2>',
-				'id' => 'cart',
-				'size' => 'modal-lg',
-				'footer' => '<button type="button" class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>
-				<button type="button" class="btn btn-success">Оформить заказ</button>
-				<button type="button" class="btn btn-danger">Очистить корзину</button>'
-			]);
+		<!-- NAVIGATION -->
+		<div id="navigation">
+			<!-- container -->
+			<div class="container">
+				<div id="responsive-nav">
+					<!-- category nav -->
 
-			\yii\bootstrap\Modal::end();
-			?>
+					<div class="category-nav btn-group">
+						<span class="category-header dropdown-toggle" data-toggle="dropdown" style="cursor: pointer;">Альбомы
+							<i class="fa fa-list"></i>
+						</span>
+						<ul class="category-list dropdown-menu">
 
-			<?php $this->endBody() ?>
-		</body>
+							<?= \app\components\MenuWidget::widget(['tpl' => 'menu'])?>
 
-		</html>
-		<?php $this->endPage() ?>
+							<li><a href="<?= \yii\helpers\Url::to(['category/view', 'id' => '-1']) ?>">Смотреть все</a></li>
+						</ul>
+					</div>
+					<!-- /category nav -->
+
+					<!-- menu nav -->
+					<div class="menu-nav">
+						<span class="menu-header">Menu <i class="fa fa-bars"></i></span>
+						<ul class="menu-list">
+							<li><a href="<?= \yii\helpers\Url::home()?>">Главная</a></li>
+							<li><a href="<?= \yii\helpers\Url::to('site/custom-fonts',true)?>">Шрифты</a></li>
+							<li><a href="#">Доставка</a></li>
+							<li><a href="#">Контакты</a></li>
+							<li><a href="#">Отзывы</a></li>
+							<li><a href="#"> </a></li>
+							<li><a href="#"> </a></li>
+							<li><a href="#"> </a></li>
+							<li><a href="#"><img src="/img/social/fb.png" alt="" height="20" width="20"></a></li>
+							<li><a href="#"><img src="/img/social/vk.png" alt="" height="20" width="20"></a></li>
+							<li><a href="#"><img src="/img/social/inst.png" alt="" height="20" width="20"></a></li>
+						</ul>
+					</div>
+					<!-- /menu nav -->
+				</div>
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /NAVIGATION -->
+
+		<?= $content; ?>
+
+		<!-- FOOTER -->
+		<footer id="footer" class="section section-grey">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<!-- footer widget -->
+					<div class="col-md-3 col-sm-6 col-xs-6">
+						<div class="footer">
+							<!-- footer logo -->
+							<div class="footer-logo">
+								<a class="logo" href="#">
+									<img src="/img/logo.png" alt="">
+								</a>
+							</div>
+							<!-- /footer logo -->
+
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
+
+							<!-- footer social -->
+							<ul class="footer-social">
+								<li><a href="#"><img src="/img/social/fb.png" alt="" height="32" width="32"></a></li>
+								<li><a href="#"><img src="/img/social/vk.png" alt="" height="32" width="32"></a></li>
+								<li><a href="#"><img src="/img/social/inst.png" alt="" height="32" width="32"></a></li>
+							</ul>
+							<!-- /footer social -->
+						</div>
+					</div>
+					<!-- /footer widget -->
+
+					<!-- footer widget -->
+					<div class="col-md-3 col-sm-6 col-xs-6">
+						<div class="footer">
+							<h3 class="footer-header">Мой аккаунт</h3>
+							<ul class="list-links">
+								<li><a href="#">Мой аккаунт</a></li>
+								<li><a href="#">Список желаний</a></li>
+								<li><a href="#">Сравнить</a></li>
+								<li><a href="#">Посчитать</a></li>
+								<li><a href="#">Войти</a></li>							
+							</ul>
+						</div>
+					</div>
+					<!-- /footer widget -->
+
+					<div class="clearfix visible-sm visible-xs"></div>
+
+					<!-- footer widget -->
+					<div class="col-md-3 col-sm-6 col-xs-6">
+						<div class="footer">
+							<h3 class="footer-header">Клиентам</h3>
+							<ul class="list-links">
+								<li><a href="#">Главная</a></li>
+								<li><a href="#">Разделы</a></li>
+								<li><a href="#">Шрифты</a></li>
+								<li><a href="#">FAQ</a></li>
+							</ul>
+						</div>
+					</div>
+					<!-- /footer widget -->
+
+					<!-- footer subscribe -->
+					<div class="col-md-3 col-sm-6 col-xs-6">
+						<div class="footer">
+							<h3 class="footer-header">Рассылка</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+							<form>
+								<div class="form-group">
+									<input class="input" placeholder="Введите E-Mail">
+								</div>
+								<button class="primary-btn">Подписаться на рассылку</button>
+							</form>
+						</div>
+					</div>
+					<!-- /footer subscribe -->
+				</div>
+				<!-- /row -->
+				<hr>
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center">
+						<!-- footer copyright -->
+						<div class="footer-copyright">
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						</div>
+						<!-- /footer copyright -->
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</footer>
+		<!-- /FOOTER -->
+
+		<?php
+		\yii\bootstrap\Modal::begin([
+			'header' => '<h2>Корзина</h2>',
+			'id' => 'cart',
+			'size' => 'modal-lg',
+			'footer' => '<button type="button" class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>
+			<a href="' . \yii\helpers\Url::to(['cart/view']) . '" class="btn btn-success">Оформить заказ</a>
+			<button type="button" class="btn btn-danger">Очистить корзину</button>'
+		]);
+
+		\yii\bootstrap\Modal::end();
+		?>
+
+		<?php $this->endBody() ?>
+	</body>
+
+	</html>
+	<?php $this->endPage() ?>

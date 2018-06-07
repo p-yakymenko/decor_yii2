@@ -1739,9 +1739,12 @@ Table OF Contents
   .del-item{
     cursor: pointer;
   }
-  #shopping-cart .shopping-cart-btns>button.primary-btn:hover {
+  #shopping-cart .shopping-cart-btns button.primary-btn:hover {
     color: #fff;
   }
   .product-options .num-font input{
     width: 90px;
+  }
+  .billing-details label{
+    display: none;
   }

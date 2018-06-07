@@ -3,16 +3,15 @@
 namespace app\modules\admin\controllers;
 
 use Yii;
-use app\modules\admin\models\Product;
+use app\modules\admin\models\Order;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\UploadedFile;
 
 /**
- * ProductController implements the CRUD actions for Product model.
+ * OrderController implements the CRUD actions for Order model.
  */
-class ProductController extends AppAdminController
+class OrderController extends AppAdminController
 {
     /**
      * {@inheritdoc}
@@ -30,13 +29,21 @@ class ProductController extends AppAdminController
     }
 
     /**
-     * Lists all Product models.
+     * Lists all Order models.
      * @return mixed
      */
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Product::find(),
+            'query' => Order::find(),
+            'pagination' => [
+                'pageSize' => 10
+            ],
+            'sort' => [
+                'defaultOrder' => [
+                    'status' => SORT_ASC
+                ]
+            ],
         ]);
 
         return $this->render('index', [
@@ -45,7 +52,7 @@ class ProductController extends AppAdminController
     }
 
     /**
-     * Displays a single Product model.
+     * Displays a single Order model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,25 +65,15 @@ class ProductController extends AppAdminController
     }
 
     /**
-     * Creates a new Product model.
+     * Creates a new Order model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Product();
+        $model = new Order();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-
-            $model->image = UploadedFile::getInstance($model, 'image');
-            if( $model->image ){
-                $model->upload();
-            }
-            unset($model->image);
-            $model->gallery = UploadedFile::getInstances($model, 'gallery');
-            $model->uploadGallery();
-            
-            Yii::$app->session->setFlash('success', "Товар {$model->name} добавлен");
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -86,7 +83,7 @@ class ProductController extends AppAdminController
     }
 
     /**
-     * Updates an existing Product model.
+     * Updates an existing Order model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -97,26 +94,16 @@ class ProductController extends AppAdminController
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-
-            $model->image = UploadedFile::getInstance($model, 'image');
-            if( $model->image ){
-                $model->upload();
-            }
-            unset($model->image);
-            $model->gallery = UploadedFile::getInstances($model, 'gallery');
-            $model->uploadGallery();
-
-            Yii::$app->session->setFlash('success', "Товар {$model->name} обновлен");
             return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
         }
+
+        return $this->render('update', [
+            'model' => $model,
+        ]);
     }
 
     /**
-     * Deletes an existing Product model.
+     * Deletes an existing Order model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -125,20 +112,20 @@ class ProductController extends AppAdminController
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-        Yii::$app->session->setFlash('success', "Товар удалён");
+
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Product model based on its primary key value.
+     * Finds the Order model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Product the loaded model
+     * @return Order the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Product::findOne($id)) !== null) {
+        if (($model = Order::findOne($id)) !== null) {
             return $model;
         }
 

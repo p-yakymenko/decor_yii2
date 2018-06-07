@@ -78,7 +78,7 @@ $gallery = $product->getImages();
 							</div>
 							<div class="txt-input">
 								<span class="text-uppercase">Надпись: </span>
-								<input class="input" type="text">
+								<input class="input" type="text" placeholder="Максимум 255 символов" maxlength="255">
 							</div>
 						</div>
 
@@ -88,11 +88,11 @@ $gallery = $product->getImages();
 								<input class="input" type="number" min="1" value="1">
 							</div>
 							<a href="<?= \yii\helpers\Url::to(['cart/add', 'id' => $product->id])?>" class="btn primary-btn add-to-cart" data-id="<?= $product->id?>"><i class="fa fa-shopping-cart"></i> В Корзину</a>
-							<div class="pull-right">
+							<!-- <div class="pull-right">
 								<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
 								<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
 								<button class="main-btn icon-btn"><i class="fa fa-share-alt"></i></button>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				</div>
